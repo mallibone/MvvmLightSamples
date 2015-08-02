@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="SubmitMessage">Submit Message</string>
+    <string name="MessageTextHint">Enter your message</string>
+    <string name="SubmittedMessageText">Awaiting your input</string>
+    <string name="ApplicationName">MvvmLight Android Bindings</string>
+</resources>

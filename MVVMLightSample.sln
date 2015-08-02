@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messenger", "Messenger", "{D603D2CB-6F3D-4DF7-ADC5-0C4E656058F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger", "Messenger\Messenger.csproj", "{A983858D-E270-4BD8-95CF-5776E4A97036}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Android", "Android", "{166829A3-86E4-411E-9D25-26D8EEDD9A6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmLightBindings.Droid", "Android\MvvmLightBindings.Droid\MvvmLightBindings.Droid.csproj", "{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,11 +43,36 @@ Global
 		{A983858D-E270-4BD8-95CF-5776E4A97036}.Release|x86.ActiveCfg = Release|x86
 		{A983858D-E270-4BD8-95CF-5776E4A97036}.Release|x86.Build.0 = Release|x86
 		{A983858D-E270-4BD8-95CF-5776E4A97036}.Release|x86.Deploy.0 = Release|x86
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|ARM.Build.0 = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|ARM.Deploy.0 = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|x64.Build.0 = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|x86.Build.0 = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|ARM.ActiveCfg = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|ARM.Build.0 = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|ARM.Deploy.0 = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|x64.ActiveCfg = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|x64.Build.0 = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|x64.Deploy.0 = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|x86.ActiveCfg = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|x86.Build.0 = Release|Any CPU
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A983858D-E270-4BD8-95CF-5776E4A97036} = {D603D2CB-6F3D-4DF7-ADC5-0C4E656058F7}
+		{64E9EE8A-B31D-49EB-96F4-6F8FD9154573} = {166829A3-86E4-411E-9D25-26D8EEDD9A6A}
 	EndGlobalSection
 EndGlobal
