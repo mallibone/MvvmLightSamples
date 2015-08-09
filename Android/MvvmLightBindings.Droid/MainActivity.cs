@@ -1,10 +1,6 @@
-﻿using System;
-using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+﻿using Android.App;
 using Android.OS;
+using Android.Widget;
 using GalaSoft.MvvmLight.Helpers;
 using MvvmLightBindings.Droid.ViewModel;
 
@@ -27,12 +23,7 @@ namespace MvvmLightBindings.Droid
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            //_lockBinding = this.SetBinding(
-            //    () => Vm.IsLocked,
-            //    () => LockCheckBox.Checked,
-            //    BindingMode.TwoWay);
-
-            _messageBinding = this.SetBinding(() => EditMessage.Text);
+            _messageBinding = this.SetBinding(() => EditMessage.Text, BindingMode.TwoWay);
 
             MessageButton.SetCommand("Click", Vm.MessageCommand, _messageBinding);
 
