@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("MvvmLightBindings.Droid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("MvvmLightListBindings.Droid.Resource", IsApplication=true)]
 
-namespace MvvmLightBindings.Droid
+namespace MvvmLightListBindings.Droid
 {
 	
 	
@@ -61,13 +61,7 @@ namespace MvvmLightBindings.Droid
 		{
 			
 			// aapt resource value: 0x7f050000
-			public const int MessageText = 2131034112;
-			
-			// aapt resource value: 0x7f050001
-			public const int SubmitMessage = 2131034113;
-			
-			// aapt resource value: 0x7f050002
-			public const int SubmittedMessage = 2131034114;
+			public const int MyButton = 2131034112;
 			
 			static Id()
 			{
@@ -98,17 +92,11 @@ namespace MvvmLightBindings.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040003
-			public const int ApplicationName = 2130968579;
-			
 			// aapt resource value: 0x7f040001
-			public const int MessageTextHint = 2130968577;
+			public const int ApplicationName = 2130968577;
 			
 			// aapt resource value: 0x7f040000
-			public const int SubmitMessage = 2130968576;
-			
-			// aapt resource value: 0x7f040002
-			public const int SubmittedMessageText = 2130968578;
+			public const int Hello = 2130968576;
 			
 			static String()
 			{
