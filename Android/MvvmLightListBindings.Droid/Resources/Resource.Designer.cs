@@ -63,7 +63,13 @@ namespace MvvmLightListBindings.Droid
 		{
 			
 			// aapt resource value: 0x7f050000
-			public const int MyButton = 2131034112;
+			public const int AddButton = 2131034112;
+			
+			// aapt resource value: 0x7f050002
+			public const int People = 2131034114;
+			
+			// aapt resource value: 0x7f050001
+			public const int RemoveButton = 2131034113;
 			
 			static Id()
 			{
@@ -94,11 +100,17 @@ namespace MvvmLightListBindings.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f040002
+			public const int AddPerson = 2130968578;
+			
 			// aapt resource value: 0x7f040001
 			public const int ApplicationName = 2130968577;
 			
 			// aapt resource value: 0x7f040000
 			public const int Hello = 2130968576;
+			
+			// aapt resource value: 0x7f040003
+			public const int RemovePerson = 2130968579;
 			
 			static String()
 			{

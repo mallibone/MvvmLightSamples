@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
+    <string name="AddPerson">Add Person</string>
+    <string name="RemovePerson">Remove Person</string>
     <string name="ApplicationName">MvvmLightListBindings.Droid</string>
 </resources>

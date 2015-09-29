@@ -5,6 +5,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using GalaSoft.MvvmLight.Helpers;
+using MvvmLightListBindings.Droid.ViewModel;
 
 namespace MvvmLightListBindings.Droid
 {
@@ -20,12 +22,15 @@ namespace MvvmLightListBindings.Droid
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            PeopleListView.Adapter = Vm.People.GetAdapter();
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
         }
+
+        private MainViewModel Vm => ViewModelLocator.Instance.MainViewModel;
+
+        private Button AddPersonButton => FindViewById<Button>(Resource.Id.AddButton);
+        private Button RemovePersonButton => FindViewById<Button>(Resource.Id.RemoveButton);
+        private ListView PeopleListView => FindViewById<ListView>(Resource.Id.People);
     }
 }
 

@@ -1,4 +1,10 @@
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using MvvmLightListBindings.Droid.Models;
+using MvvmLightListBindings.Droid.Services;
 
 namespace MvvmLightListBindings.Droid.ViewModel
 {
@@ -21,14 +27,39 @@ namespace MvvmLightListBindings.Droid.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            People = new ObservableCollection<Person>();
+        }
+
+        public ObservableCollection<Person> People { get; }
+
+        public async Task InitAsync()
+        {
+            if (People.Any()) return;
+
+            var people = await InitPeopleList();
+            People.Clear();
+            foreach (var person in people)
+            {
+                People.Add(person);
+            }
+        }
+
+        private async Task<IEnumerable<Person>> InitPeopleList()
+        {
+            const int personCount = 50;
+            var people = new List<Person>(personCount);
+
+            await Task.Run(() =>
+            {
+                for (int i = 0; i < personCount; ++i)
+                {
+                    var firstName = NameGenerator.GenRandomFirstName();
+                    var lastName = NameGenerator.GenRandomLastName();
+                    people.Add(new Person(firstName, lastName));
+                }
+            });
+
+            return people;
         }
     }
 }
