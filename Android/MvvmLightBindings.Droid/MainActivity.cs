@@ -1,8 +1,4 @@
-﻿using System;
-using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
+﻿using Android.App;
 using Android.Widget;
 using Android.OS;
 using GalaSoft.MvvmLight.Helpers;
@@ -14,7 +10,6 @@ namespace MvvmLightBindings.Droid
     public class MainActivity : Activity
     {
         private EditText _editMessage;
-        private MainViewModel _vm;
         private Button _messageButton;
         private Binding<string, string> _messageBinding;
         private Binding<string, string> _textViewBinding;
@@ -27,11 +22,6 @@ namespace MvvmLightBindings.Droid
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            //_lockBinding = this.SetBinding(
-            //    () => Vm.IsLocked,
-            //    () => LockCheckBox.Checked,
-            //    BindingMode.TwoWay);
-
             _messageBinding = this.SetBinding(() => EditMessage.Text);
 
             MessageButton.SetCommand("Click", Vm.MessageCommand, _messageBinding);
@@ -40,7 +30,7 @@ namespace MvvmLightBindings.Droid
 
         }
 
-        public MainViewModel Vm => _vm ?? (_vm = App.Locator.Main);
+        public MainViewModel Vm => App.Locator.Main;
 
         public EditText EditMessage
         {
