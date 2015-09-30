@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using GalaSoft.MvvmLight.Helpers;
+using MvvmLightListBindings.Droid.Models;
 using MvvmLightListBindings.Droid.ViewModel;
 
 namespace MvvmLightListBindings.Droid
@@ -22,8 +23,13 @@ namespace MvvmLightListBindings.Droid
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            PeopleListView.Adapter = Vm.People.GetAdapter();
+            PeopleListView.Adapter = Vm.People.GetAdapter(GetPersonView);
+        }
 
+        private View GetPersonView(int position, Person person, View convertView)
+        {
+            View view = convertView ?? LayoutInflater.Inflate(Resource.Layout.RowPerson, null);
+            throw new NotImplementedException();
         }
 
         private MainViewModel Vm => ViewModelLocator.Instance.MainViewModel;
