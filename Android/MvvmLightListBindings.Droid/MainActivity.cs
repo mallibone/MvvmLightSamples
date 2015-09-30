@@ -1,7 +1,4 @@
-﻿using System;
-using Android.App;
-using Android.Content;
-using Android.Runtime;
+﻿using Android.App;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
@@ -14,22 +11,30 @@ namespace MvvmLightListBindings.Droid
     [Activity(Label = "MvvmLightListBindings.Droid", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        int count = 1;
 
-        protected override void OnCreate(Bundle bundle)
+        protected override async void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            await Vm.InitAsync();
             PeopleListView.Adapter = Vm.People.GetAdapter(GetPersonView);
+            AddPersonButton.SetCommand("Click", Vm.AddPersonCommand);
+            RemovePersonButton.SetCommand("Click", Vm.RemovePersonCommand);
         }
 
         private View GetPersonView(int position, Person person, View convertView)
         {
             View view = convertView ?? LayoutInflater.Inflate(Resource.Layout.RowPerson, null);
-            throw new NotImplementedException();
+
+            var firstName = view.FindViewById<TextView>(Resource.Id.FirstName);
+            var lastName = view.FindViewById<TextView>(Resource.Id.LastName);
+
+            firstName.Text = person.FirstName;
+            lastName.Text = person.LastName;
+
+            return view;
         }
 
         private MainViewModel Vm => ViewModelLocator.Instance.MainViewModel;

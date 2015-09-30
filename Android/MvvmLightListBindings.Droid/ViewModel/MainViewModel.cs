@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using MvvmLightListBindings.Droid.Models;
 using MvvmLightListBindings.Droid.Services;
 
@@ -22,19 +23,27 @@ namespace MvvmLightListBindings.Droid.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
         public MainViewModel()
         {
-            People = new ObservableCollection<Person>();
+            AddPersonCommand = new RelayCommand(AddPerson);
+            RemovePersonCommand = new RelayCommand(RemovePerson);
         }
 
-        public ObservableCollection<Person> People { get; }
+        public ObservableCollection<Person> People { get; private set; }
+        public RelayCommand AddPersonCommand { get; set; }
+        public RelayCommand RemovePersonCommand { get; set; }
 
         public async Task InitAsync()
         {
-            if (People.Any()) return;
+            if (People != null)
+            {
+                // Prevent memory leak in Android
+                var peopleCopy = People.ToList();
+                People = new ObservableCollection<Person>(peopleCopy);
+                return;
+            }
+
+            People = new ObservableCollection<Person>();
 
             var people = await InitPeopleList();
             People.Clear();
@@ -46,20 +55,36 @@ namespace MvvmLightListBindings.Droid.ViewModel
 
         private async Task<IEnumerable<Person>> InitPeopleList()
         {
-            const int personCount = 50;
+            const int personCount = 5;
             var people = new List<Person>(personCount);
 
             await Task.Run(() =>
             {
                 for (int i = 0; i < personCount; ++i)
                 {
-                    var firstName = NameGenerator.GenRandomFirstName();
-                    var lastName = NameGenerator.GenRandomLastName();
-                    people.Add(new Person(firstName, lastName));
+                    people.Add(GeneratePerson());
                 }
             });
 
             return people;
+        }
+
+        private void AddPerson()
+        {
+            People.Add(GeneratePerson());
+        }
+
+        private Person GeneratePerson()
+        {
+            var firstName = NameGenerator.GenRandomFirstName();
+            var lastName = NameGenerator.GenRandomLastName();
+            return new Person(firstName, lastName);
+        }
+
+        private void RemovePerson()
+        {
+            if (!People.Any()) return;
+            People.Remove(People.Last());
         }
     }
 }
