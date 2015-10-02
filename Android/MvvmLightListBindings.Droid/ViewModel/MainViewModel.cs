@@ -9,18 +9,6 @@ using MvvmLightListBindings.Droid.Services;
 
 namespace MvvmLightListBindings.Droid.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
     public class MainViewModel : ViewModelBase
     {
         public MainViewModel()
@@ -29,9 +17,9 @@ namespace MvvmLightListBindings.Droid.ViewModel
             RemovePersonCommand = new RelayCommand(RemovePerson);
         }
 
-        public ObservableCollection<Person> People { get; private set; }
         public RelayCommand AddPersonCommand { get; set; }
         public RelayCommand RemovePersonCommand { get; set; }
+        public ObservableCollection<Person> People { get; private set; }
 
         public async Task InitAsync()
         {
