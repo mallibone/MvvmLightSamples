@@ -121,6 +121,7 @@ namespace MvvmLightTableViewBindings.iOS.Services
         {
             List<string> lst = new List<string>();
             string str = string.Empty;
+            // male
             lst.Add("Aiden");
             lst.Add("Jackson");
             lst.Add("Mason");
@@ -222,7 +223,7 @@ namespace MvvmLightTableViewBindings.iOS.Services
             lst.Add("Justin");
             lst.Add("Bryce");
 
-            //�����female
+            //female
 
             lst.Add("Sophia");
             lst.Add("Emma");
