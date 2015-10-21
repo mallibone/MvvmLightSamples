@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using Foundation;
 using GalaSoft.MvvmLight.Helpers;
 using MvvmLightTableViewBindings.iOS.Models;
@@ -20,9 +19,9 @@ namespace MvvmLightTableViewBindings.iOS
         {
             base.ViewDidLoad();
 
-            // Perform any additional setup after loading the view, typically from a nib.
             await Vm.InitAsync();
 
+            // Setup bindings
             AddPersonButton.SetCommand("TouchUpInside", Vm.AddPersonCommand);
             RemovePersonButton.SetCommand("TouchUpInside", Vm.RemovePersonCommand);
         }
