@@ -26,8 +26,6 @@ namespace MvvmLightBindings.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::GalaSoft.MvvmLight.Resource.String.ApplicationName = global::MvvmLightBindings.Droid.Resource.String.ApplicationName;
-			global::GalaSoft.MvvmLight.Resource.String.Hello = global::MvvmLightBindings.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -100,20 +98,17 @@ namespace MvvmLightBindings.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f040003
+			public const int ApplicationName = 2130968579;
+			
 			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			public const int MessageTextHint = 2130968577;
 			
 			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
-			
-			// aapt resource value: 0x7f040003
-			public const int MessageTextHint = 2130968579;
+			public const int SubmitMessage = 2130968576;
 			
 			// aapt resource value: 0x7f040002
-			public const int SubmitMessage = 2130968578;
-			
-			// aapt resource value: 0x7f040004
-			public const int SubmittedMessageText = 2130968580;
+			public const int SubmittedMessageText = 2130968578;
 			
 			static String()
 			{
