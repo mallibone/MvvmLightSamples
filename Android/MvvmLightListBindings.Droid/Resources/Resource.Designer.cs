@@ -26,6 +26,8 @@ namespace MvvmLightListBindings.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::GalaSoft.MvvmLight.Resource.String.ApplicationName = global::MvvmLightListBindings.Droid.Resource.String.ApplicationName;
+			global::GalaSoft.MvvmLight.Resource.String.Hello = global::MvvmLightListBindings.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -107,14 +109,17 @@ namespace MvvmLightListBindings.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int AddPerson = 2130968576;
-			
 			// aapt resource value: 0x7f040002
-			public const int ApplicationName = 2130968578;
+			public const int AddPerson = 2130968578;
 			
 			// aapt resource value: 0x7f040001
-			public const int RemovePerson = 2130968577;
+			public const int ApplicationName = 2130968577;
+			
+			// aapt resource value: 0x7f040000
+			public const int Hello = 2130968576;
+			
+			// aapt resource value: 0x7f040003
+			public const int RemovePerson = 2130968579;
 			
 			static String()
 			{
