@@ -26,6 +26,8 @@ namespace MvvmLightListRowBindings.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::GalaSoft.MvvmLight.Resource.String.ApplicationName = global::MvvmLightListRowBindings.Droid.Resource.String.ApplicationName;
+			global::GalaSoft.MvvmLight.Resource.String.Hello = global::MvvmLightListRowBindings.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -61,7 +63,7 @@ namespace MvvmLightListRowBindings.Droid
 		{
 			
 			// aapt resource value: 0x7f050000
-			public const int Countdowns = 2131034112;
+			public const int CountdownsListView = 2131034112;
 			
 			static Id()
 			{
