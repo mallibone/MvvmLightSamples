@@ -6,7 +6,7 @@ namespace MvvmLightListRowBindings.Droid.ViewModels
 {
 	public class CountdownViewItem:ViewModelBase
 	{
-		DateTime _expirationTimestamp;
+	    private readonly DateTime _expirationTimestamp;
 
 		public CountdownViewItem(TimeSpan timespan)
 		{
@@ -32,7 +32,7 @@ namespace MvvmLightListRowBindings.Droid.ViewModels
 			while (DateTime.UtcNow < _expirationTimestamp)
 			{
 				var remainingTime = _expirationTimestamp - DateTime.UtcNow;
-				RemainingTimeString = remainingTime.ToString ("c");
+				RemainingTimeString = remainingTime.ToString (@"hh\:mm\:ss");
 				await Task.Delay(millisecondsDelay: 1000);
 			}
 
