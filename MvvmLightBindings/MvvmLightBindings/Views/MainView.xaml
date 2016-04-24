@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MvvmLightBindings.Views.MainView">
-  <StackLayout>
-    <Entry x:Name="InputMessage" Text="{Binding InputMessage, Mode=TwoWay}" Placeholder="Enter a message and submit it" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Button Text="Submit" Command="{SubmitMessageCommand, Path=InputMessage}" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Label Text="{Binding SubmittedText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  <StackLayout Padding="8,64">
+    <Entry Text="{Binding InputMessage, Mode=TwoWay}" Placeholder="Enter a message and submit it" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
+    <Button Text="Submit" Command="{Binding SubmitMessageCommand}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{Binding SubmittedMessage}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
   </StackLayout>
 </ContentPage>

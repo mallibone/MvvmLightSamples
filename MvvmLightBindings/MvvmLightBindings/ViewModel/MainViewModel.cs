@@ -1,3 +1,4 @@
+using System;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 
@@ -5,19 +6,19 @@ namespace MvvmLightBindings.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private string _inputText;
-        private string _submittedMessage;
+        private string _inputText = string.Empty;
+        private string _submittedMessage = string.Empty;
 
         public MainViewModel()
         {
-            SubmitMessageCommand = new RelayCommand<string>(SubmitMessage);
+            SubmitMessageCommand = new RelayCommand(SubmitMessage);
         }
 
-        public RelayCommand<string> SubmitMessageCommand { get; private set; }
+        public RelayCommand SubmitMessageCommand { get; private set; }
 
-        private void SubmitMessage(string message)
+        private void SubmitMessage()
         {
-            SubmittedMessage = message;
+            SubmittedMessage = InputMessage;
         }
 
         public string SubmittedMessage
@@ -25,8 +26,9 @@ namespace MvvmLightBindings.ViewModel
             get { return _submittedMessage; }
             set
             {
+                if (value == _submittedMessage) return;
                 _submittedMessage = value;
-                RaisePropertyChanged(propertyName: nameof(SubmittedMessage));
+                RaisePropertyChanged(nameof(SubmittedMessage));
             }
         }
 
@@ -36,7 +38,7 @@ namespace MvvmLightBindings.ViewModel
             set
             {
                 _inputText = value;
-                RaisePropertyChanged(propertyName: nameof(InputMessage));
+                RaisePropertyChanged(nameof(InputMessage));
             }
         }
     }
