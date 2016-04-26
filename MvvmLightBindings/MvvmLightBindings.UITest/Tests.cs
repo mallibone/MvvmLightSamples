@@ -29,6 +29,7 @@ namespace MvvmLightBindings.UITest
         public void AppLaunches()
         {
             app.Screenshot("First screen.");
+            app.Repl();
         }
     }
 }
