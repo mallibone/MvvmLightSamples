@@ -26,10 +26,21 @@ namespace MvvmLightBindings.UITest
         }
 
         [Test]
+        [Ignore]
         public void AppLaunches()
         {
             app.Screenshot("First screen.");
             app.Repl();
+        }
+
+        [Test]
+        public void EnterAndSubmitText_ItAppearsInTheSubmittedTextLabel()
+        {
+            app.EnterText(q => q.Marked("InputMessageEntry"), "Hello from Xamarin Test Cloud");
+            app.Screenshot("Has entered text");
+            app.Tap(q => q.Marked("SubmitMessageButton"));
+            app.Screenshot("Has taped the submit button.");
+            Assert.IsFalse(string.IsNullOrEmpty(app.Query(q => q.Marked("SubmittedMessageLabel")).First().Text));
         }
     }
 }

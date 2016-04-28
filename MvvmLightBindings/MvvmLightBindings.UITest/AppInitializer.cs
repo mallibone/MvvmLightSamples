@@ -14,7 +14,8 @@ namespace MvvmLightBindings.UITest
             {
                 return ConfigureApp
                     .Android
-                    .StartApp();
+                    .Debug()
+                    .StartApp(Xamarin.UITest.Configuration.AppDataMode.Clear);
             }
 
             return ConfigureApp
