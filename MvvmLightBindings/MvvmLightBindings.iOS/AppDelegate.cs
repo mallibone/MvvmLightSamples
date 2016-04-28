@@ -23,11 +23,11 @@ namespace MvvmLightBindings.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-#if ENABLE_TEST_CLOUD
-Xamarin.Calabash.Start();
-#endif
+            #if ENABLE_TEST_CLOUD
+            Xamarin.Calabash.Start();
+            #endif
 
-            global::Xamarin.Forms.Forms.Init();
+            Forms.Init();
 
             Forms.ViewInitialized += (object sender, ViewInitializedEventArgs e) => {
                 // http://developer.xamarin.com/recipes/testcloud/set-accessibilityidentifier-ios/
@@ -41,5 +41,6 @@ Xamarin.Calabash.Start();
 
             return base.FinishedLaunching(app, options);
         }
+
     }
 }
