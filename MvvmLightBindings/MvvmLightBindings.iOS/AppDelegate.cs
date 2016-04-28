@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace MvvmLightBindings.iOS
 {
@@ -27,6 +28,15 @@ Xamarin.Calabash.Start();
 #endif
 
             global::Xamarin.Forms.Forms.Init();
+
+            Forms.ViewInitialized += (object sender, ViewInitializedEventArgs e) => {
+                // http://developer.xamarin.com/recipes/testcloud/set-accessibilityidentifier-ios/
+                if (null != e.View.AutomationId)
+                {
+                    e.NativeView.AccessibilityIdentifier = e.View.AutomationId;
+                }
+            };
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

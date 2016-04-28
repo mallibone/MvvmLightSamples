@@ -26,8 +26,6 @@ namespace MvvmLightListRowBindings.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::GalaSoft.MvvmLight.Resource.String.ApplicationName = global::MvvmLightListRowBindings.Droid.Resource.String.ApplicationName;
-			global::GalaSoft.MvvmLight.Resource.String.Hello = global::MvvmLightListRowBindings.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
