@@ -1,9 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using NUnit.Framework;
 using Xamarin.UITest;
-using Xamarin.UITest.Queries;
 
 namespace MvvmLightBindings.UITest
 {
@@ -26,10 +23,8 @@ namespace MvvmLightBindings.UITest
         }
 
         [Test]
-        [Ignore]
         public void AppLaunches()
         {
-            app.Screenshot("First screen.");
             app.Repl();
         }
 
