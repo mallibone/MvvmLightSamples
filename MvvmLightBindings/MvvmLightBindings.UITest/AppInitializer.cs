@@ -20,6 +20,7 @@ namespace MvvmLightBindings.UITest
 
             return ConfigureApp
                 .iOS
+				.PreferIdeSettings()
                 .StartApp();
         }
     }
