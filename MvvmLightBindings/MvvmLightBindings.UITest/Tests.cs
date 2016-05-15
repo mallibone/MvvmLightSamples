@@ -23,12 +23,14 @@ namespace MvvmLightBindings.UITest
         }
 
         [Test]
+        [Ignore]
         public void AppLaunches()
         {
             app.Repl();
         }
 
         [Test]
+        [Category("all")]
         public void EnterAndSubmitText_ItAppearsInTheSubmittedTextLabel()
         {
             app.EnterText(q => q.Marked("InputMessageEntry"), "Hello from Xamarin Test Cloud");
