@@ -8,7 +8,7 @@ using System;
 
 namespace MvvmLightTableViewBindings.iOS.ViewModel
 {
-	public class CountdownViewItem:ViewModelBase
+    public class CountdownViewItem : ViewModelBase
 	{
 		DateTime _expirationTimestamp;
 
@@ -35,9 +35,9 @@ namespace MvvmLightTableViewBindings.iOS.ViewModel
 		{
 			while (DateTime.UtcNow < _expirationTimestamp)
 			{
-				var remainingTime = _expirationTimestamp - DateTime.UtcNow;
-				RemainingTimeString = remainingTime.ToString ("c");
-				await Task.Delay(millisecondsDelay: 1000);
+				TimeSpan remainingTime = _expirationTimestamp - DateTime.UtcNow;
+                RemainingTimeString = remainingTime.ToString ("g");
+				await Task.Delay(millisecondsDelay: 500);
 			}
 
 			RemainingTimeString = "Timer Expired";

@@ -1,5 +1,6 @@
 using Foundation;
 using GalaSoft.MvvmLight.Helpers;
+using MvvmLightTableViewBindings.iOS.ViewModel;
 using System;
 using UIKit;
 
@@ -11,12 +12,17 @@ namespace MvvmLightTableViewCellBindings.iOS
         {
         }
 
-        public Binding Binding { get; set; }
+        private Binding<string, string> _timerBinding;
 
 		public override void PrepareForReuse()
 		{
             base.PrepareForReuse();
-            Binding.Detach();
+            _timerBinding?.Detach();
 		}
-	}
+
+        internal void Configure(CountdownViewItem countdownViewItem)
+        {
+            _timerBinding = this.SetBinding(() => countdownViewItem.RemainingTimeString, () => RemainingTimeLabel.Text);
+        }
+    }
 }

@@ -31,14 +31,12 @@ namespace MvvmLightTableViewCellBindings.iOS
 		private void BindCellDelegate(UITableViewCell cell, CountdownViewItem countdownViewItem, NSIndexPath path)
 		{
             var bindableCell = (CustomCell) cell;
-//			bindableCell.TextLabel.Text = person.FullName;
-            bindableCell.Binding = this.SetBinding(() => countdownViewItem.RemainingTimeString, () => bindableCell.TextLabel.Text);
-//			bindableCell.TextLabel.Text = countdownViewItem.RemainingTimeString;
-		}
+            bindableCell.Configure(countdownViewItem);
+        }
 
 		private UITableViewCell CreatePersonCell(NSString cellIdentifier)
 		{
-            return _tableViewController.TableView.DequeueReusableCell("TextCell");
+            return _tableViewController.TableView.DequeueReusableCell("TimerCell");
 		}
 	}
 
