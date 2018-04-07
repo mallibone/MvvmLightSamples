@@ -1,6 +1,6 @@
 // WARNING
 //
-// This file has been generated automatically by Xamarin Studio from the outlets and
+// This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
@@ -11,19 +11,28 @@ using UIKit;
 
 namespace MvvmLightTableViewCellBindings.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
-	{
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITableView CountdownsTableView { get; set; }
+    [Register ("ViewController")]
+    partial class ViewController
+    {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton AddTimerButton { get; set; }
 
-		void ReleaseDesignerOutlets ()
-		{
-			if (CountdownsTableView != null) {
-				CountdownsTableView.Dispose ();
-				CountdownsTableView = null;
-			}
-		}
-	}
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView CountdownsTableView { get; set; }
+
+        void ReleaseDesignerOutlets ()
+        {
+            if (AddTimerButton != null) {
+                AddTimerButton.Dispose ();
+                AddTimerButton = null;
+            }
+
+            if (CountdownsTableView != null) {
+                CountdownsTableView.Dispose ();
+                CountdownsTableView = null;
+            }
+        }
+    }
 }

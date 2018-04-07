@@ -17,8 +17,6 @@ namespace MvvmLightTableViewBindings.iOS.ViewModel
 
 			Countdowns = new ObservableCollection<CountdownViewItem>();
 			Countdowns.Add (new CountdownViewItem(new TimeSpan(13,37,0)));
-//			Countdowns.Add (new CountdownViewItem(new TimeSpan(0,13,37)));
-//			Countdowns.Add (new CountdownViewItem(new TimeSpan(0,42,0)));
         }
 
         public RelayCommand AddCountdownCommand { get; set; }

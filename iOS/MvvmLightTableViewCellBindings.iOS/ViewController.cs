@@ -21,41 +21,26 @@ namespace MvvmLightTableViewCellBindings.iOS
 			base.ViewDidLoad();
 
 			// Setup bindings
-//			AddPersonButton.SetCommand("TouchUpInside", Vm.AddPersonCommand);
-//			RemovePersonButton.SetCommand("TouchUpInside", Vm.RemovePersonCommand);
-		}
 
-		public override void ViewWillAppear(bool animated)
-		{
-			base.ViewWillAppear(animated);
+            _tableViewController = Vm.Countdowns.GetController(CreatePersonCell, BindCellDelegate);
+            _tableViewController.TableView = CountdownsTableView;
 
-			_tableViewController = Vm.Countdowns.GetController(CreatePersonCell, BindCellDelegate);
-			_tableViewController.TableView = CountdownsTableView;
+            AddTimerButton.SetCommand("TouchUpInside", Vm.AddCountdownCommand);
 		}
 
 		private void BindCellDelegate(UITableViewCell cell, CountdownViewItem countdownViewItem, NSIndexPath path)
 		{
-			var bindableCell = (BindableTextCell) cell;
+            var bindableCell = (CustomCell) cell;
 //			bindableCell.TextLabel.Text = person.FullName;
-			bindableCell.TextBinding = this.SetBinding(() => countdownViewItem.RemainingTimeString, () => bindableCell.TextLabel.Text);
+            bindableCell.Binding = this.SetBinding(() => countdownViewItem.RemainingTimeString, () => bindableCell.TextLabel.Text);
 //			bindableCell.TextLabel.Text = countdownViewItem.RemainingTimeString;
 		}
 
 		private UITableViewCell CreatePersonCell(NSString cellIdentifier)
 		{
-			return new BindableTextCell("Gnabber");
-//			return new BindableTextCell(base.Handle);
+            return _tableViewController.TableView.DequeueReusableCell("TextCell");
 		}
 	}
 
-	public class BindableTextCell : UITableViewCell
-	{
-		public BindableTextCell(string identifier):base(UITableViewCellStyle.Default, identifier){
-			
-		}
-
-		public Binding<string, string> TextBinding;
-		
-	}
 }
 

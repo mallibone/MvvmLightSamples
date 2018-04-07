@@ -6,6 +6,8 @@
 *.user
 *.sln.docstates
 *.userprefs
+.mfractor
+.vs
 
 # Build results
 [Dd]ebug/
