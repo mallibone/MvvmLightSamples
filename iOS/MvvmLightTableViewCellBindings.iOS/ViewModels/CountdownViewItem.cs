@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 using System;
 
 namespace MvvmLightTableViewBindings.iOS.ViewModel
@@ -27,7 +26,7 @@ namespace MvvmLightTableViewBindings.iOS.ViewModel
 			set {
 				if (value == _remainingTimeString) return;
 				_remainingTimeString = value;
-				RaisePropertyChanged (nameof (RemainingTimeString));
+                RaisePropertyChanged (nameof (RemainingTimeString));
 			}
 		}
 
@@ -37,7 +36,7 @@ namespace MvvmLightTableViewBindings.iOS.ViewModel
 			{
 				TimeSpan remainingTime = _expirationTimestamp - DateTime.UtcNow;
                 RemainingTimeString = remainingTime.ToString ("g");
-				await Task.Delay(millisecondsDelay: 500);
+				await Task.Delay(millisecondsDelay: 1000);
 			}
 
 			RemainingTimeString = "Timer Expired";
