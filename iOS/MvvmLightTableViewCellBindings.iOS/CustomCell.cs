@@ -8,23 +8,14 @@ namespace MvvmLightTableViewCellBindings.iOS
 {
     public partial class CustomCell : UITableViewCell
     {
+
+        CountdownViewItem _countdownViewItem;
+
         public CustomCell (IntPtr handle) : base (handle)
         {
         }
 
         public Binding<string, string> _timerBinding;
-        public string RemainingTimeText
-        {
-            get
-            {
-                return RemainingTimeLabel.Text;
-            }
-
-            set
-            {
-                RemainingTimeLabel.Text = value;
-            }
-        }
 
         public override void PrepareForReuse()
 		{
@@ -34,8 +25,8 @@ namespace MvvmLightTableViewCellBindings.iOS
 
         internal void Configure(CountdownViewItem countdownViewItem)
         {
-            _timerBinding = new Binding<string, string>(countdownViewItem, "RemainingTimeString", mode: BindingMode.OneWay).WhenSourceChanges(() => RemainingTimeText = countdownViewItem.RemainingTimeString);
-            //_timerBinding = this.SetBinding(() => countdownViewItem.RemainingTimeString, () => RemainingTimeText);
+            _countdownViewItem = countdownViewItem;
+            _timerBinding = this.SetBinding(() => _countdownViewItem.RemainingTimeString, () => RemainingTimeLabel.Text);
         }
     }
 }

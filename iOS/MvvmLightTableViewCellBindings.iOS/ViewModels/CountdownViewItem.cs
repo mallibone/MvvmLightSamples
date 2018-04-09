@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using System;
@@ -35,8 +32,8 @@ namespace MvvmLightTableViewBindings.iOS.ViewModel
 			while (DateTime.UtcNow < _expirationTimestamp)
 			{
 				TimeSpan remainingTime = _expirationTimestamp - DateTime.UtcNow;
-                RemainingTimeString = remainingTime.ToString ("g");
-				await Task.Delay(millisecondsDelay: 1000);
+                RemainingTimeString = remainingTime.ToString (@"hh\:mm\:ss");
+				await Task.Delay(millisecondsDelay: 490);
 			}
 
 			RemainingTimeString = "Timer Expired";

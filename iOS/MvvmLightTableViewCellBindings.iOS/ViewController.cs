@@ -1,5 +1,4 @@
 ﻿using System;
-
 using UIKit;
 using GalaSoft.MvvmLight.Helpers;
 using MvvmLightTableViewBindings.iOS.ViewModel;
@@ -25,9 +24,9 @@ namespace MvvmLightTableViewCellBindings.iOS
 
             // Setup bindings
 
-            //_tableViewController = Vm.Countdowns.GetController(CreatePersonCell, BindCellDelegate);
-            //_tableViewController.TableView = CountdownsTableView;
-            CountdownsTableView.Source = new GenericTableViewSource<CountdownViewItem>(Vm.Countdowns, CreatePersonCell, BindCellDelegate);
+            _tableViewController = Vm.Countdowns.GetController(CreatePersonCell, BindCellDelegate);
+            _tableViewController.TableView = CountdownsTableView;
+            //CountdownsTableView.Source = new GenericTableViewSource<CountdownViewItem>(Vm.Countdowns, CreatePersonCell, BindCellDelegate);
 
             AddTimerButton.SetCommand("TouchUpInside", Vm.AddCountdownCommand);
 		}
@@ -38,9 +37,9 @@ namespace MvvmLightTableViewCellBindings.iOS
             bindableCell.Configure(countdownViewItem);
         }
 
-		//private UITableViewCell CreatePersonCell(NSString cellIdentifier)
+		private UITableViewCell CreatePersonCell(NSString cellIdentifier)
 
-        private UITableViewCell CreatePersonCell(CountdownViewItem countdownViewItem)
+        //private UITableViewCell CreatePersonCell(CountdownViewItem countdownViewItem)
 		{
             return CountdownsTableView.DequeueReusableCell("TimerCell");
 		}
